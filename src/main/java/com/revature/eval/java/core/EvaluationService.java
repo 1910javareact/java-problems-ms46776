@@ -1,9 +1,17 @@
 package com.revature.eval.java.core;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class EvaluationService {
 
@@ -272,9 +280,10 @@ int score = 0;
 	 * free: 1
 	 * 
 	 * @param string
+	 * @param wordcounts 
 	 * @return
 	 */
-	public Map<String, Integer> wordCount(String string) {
+	public Map<String, Integer> wordCount(String string, Map<String, Integer> wordcounts) {
 		// A map to hold the occurrences of the different words that occurred 
 		HashMap<String, Integer> wordCounts = new HashMap<>();
 		
@@ -302,7 +311,7 @@ int score = 0;
 		
 		// Don't forget to close the scanner
 		parser.close();
-		return wordcounts;
+		return wordCounts;
 	}
 
 	/**
@@ -677,6 +686,9 @@ int score = 0;
 	 * quick brown fox jumps over the lazy dog.
 	 */
 	static class RotationalCipher {
+		private static final int UPPER_CASE_OFFSET = 0;
+		private static final int LOWER_CASE_OFFSET = 0;
+		private static final int LETTERS_IN_ALPHA = 0;
 		private int key;
 
 		public RotationalCipher(int key) {
@@ -731,7 +743,7 @@ int score = 0;
 							}
 							
 							// Undo the offset moving the character back to the alphabetic 
-							// ascii codes. 
+							// ASCII codes. 
 							chInt += offset;
 							
 							// Finally, cast back to a char, (safe as the number is between 

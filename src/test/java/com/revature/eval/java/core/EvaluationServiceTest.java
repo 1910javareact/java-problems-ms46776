@@ -199,7 +199,7 @@ public class EvaluationServiceTest {
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("word", 1);
 
-		Map<String, Integer> actualWordCount = evaluationService.wordCount("word");
+		Map<String, Integer> actualWordCount = evaluationService.wordCount("word", actualWordCount);
 		assertEquals(expectedWordCount, actualWordCount);
 	}
 
